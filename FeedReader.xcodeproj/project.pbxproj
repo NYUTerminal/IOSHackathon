@@ -14,6 +14,7 @@
 		CB2DC8411ADCA765004166E2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB2DC83F1ADCA765004166E2 /* LaunchScreen.xib */; };
 		CB2DC84D1ADCA765004166E2 /* FeedReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2DC84C1ADCA765004166E2 /* FeedReaderTests.swift */; };
 		CB80B0D81ADD9C97006E3E81 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CB80B0D71ADD9C97006E3E81 /* Podfile */; };
+		CB82A0D51ADDC9D7003B1C2A /* ReadMe in Resources */ = {isa = PBXBuildFile; fileRef = CB82A0D41ADDC9D7003B1C2A /* ReadMe */; };
 		E7D91E863F978708FD7CF5FF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59DCB751C36E329BDF01E0B9 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		CB2DC84C1ADCA765004166E2 /* FeedReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedReaderTests.swift; sourceTree = "<group>"; };
 		CB80B0D71ADD9C97006E3E81 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		CB82A0D11ADD9FB2003B1C2A /* FeedReader-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FeedReader-Bridging-Header.h"; sourceTree = "<group>"; };
+		CB82A0D41ADDC9D7003B1C2A /* ReadMe */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
 		F771ACE62BD4D334832AA759 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,6 +86,7 @@
 		CB2DC8281ADCA765004166E2 = {
 			isa = PBXGroup;
 			children = (
+				CB82A0D41ADDC9D7003B1C2A /* ReadMe */,
 				CB80B0D71ADD9C97006E3E81 /* Podfile */,
 				CB82A0D11ADD9FB2003B1C2A /* FeedReader-Bridging-Header.h */,
 				CB2DC8331ADCA765004166E2 /* FeedReader */,
@@ -223,6 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB82A0D51ADDC9D7003B1C2A /* ReadMe in Resources */,
 				CB2DC83C1ADCA765004166E2 /* Main.storyboard in Resources */,
 				CB2DC8411ADCA765004166E2 /* LaunchScreen.xib in Resources */,
 				CB80B0D81ADD9C97006E3E81 /* Podfile in Resources */,
