@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FeedReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yK6-Ar-3hj"/>
+                        <viewControllerLayoutGuide type="bottom" id="pNz-re-d3V"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="99z-lz-C3K">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="O1g-Kk-Rq3">
+                                <rect key="frame" x="16" y="60" width="568" height="29"/>
+                                <segments>
+                                    <segment title="Top"/>
+                                    <segment title="Newest"/>
+                                </segments>
+                                <color key="tintColor" red="1" green="0.35779419065164975" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WZD-63-ZEc">
+                                <rect key="frame" x="0.0" y="93" width="600" height="507"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="tmv-e9-hfx">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="507"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="tmv-e9-hfx" firstAttribute="leading" secondItem="WZD-63-ZEc" secondAttribute="leading" id="2cL-eM-yST"/>
+                                    <constraint firstItem="tmv-e9-hfx" firstAttribute="top" secondItem="WZD-63-ZEc" secondAttribute="top" id="YSM-l1-stF"/>
+                                    <constraint firstAttribute="bottom" secondItem="tmv-e9-hfx" secondAttribute="bottom" id="hgI-Ow-wts"/>
+                                    <constraint firstAttribute="trailing" secondItem="tmv-e9-hfx" secondAttribute="trailing" id="z0y-kc-4Kz"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pNz-re-d3V" firstAttribute="top" secondItem="WZD-63-ZEc" secondAttribute="bottom" id="0JI-jy-pA4"/>
+                            <constraint firstItem="O1g-Kk-Rq3" firstAttribute="top" secondItem="yK6-Ar-3hj" secondAttribute="bottom" constant="5" id="By0-6N-fpC"/>
+                            <constraint firstItem="O1g-Kk-Rq3" firstAttribute="leading" secondItem="99z-lz-C3K" secondAttribute="leadingMargin" id="QRe-FR-K4b"/>
+                            <constraint firstItem="WZD-63-ZEc" firstAttribute="top" secondItem="O1g-Kk-Rq3" secondAttribute="bottom" constant="5" id="b4U-2L-Rhx"/>
+                            <constraint firstItem="WZD-63-ZEc" firstAttribute="leading" secondItem="99z-lz-C3K" secondAttribute="leading" id="dC1-Uc-zsL"/>
+                            <constraint firstAttribute="trailing" secondItem="WZD-63-ZEc" secondAttribute="trailing" id="lmS-US-uWC"/>
+                            <constraint firstItem="O1g-Kk-Rq3" firstAttribute="trailing" secondItem="99z-lz-C3K" secondAttribute="trailingMargin" id="rFH-CK-WFM"/>
+                            <constraint firstItem="O1g-Kk-Rq3" firstAttribute="top" secondItem="yK6-Ar-3hj" secondAttribute="bottom" constant="40" id="tDc-Cj-IyY"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="By0-6N-fpC"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="postsTableView" destination="tmv-e9-hfx" id="pEp-zq-rF3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
