@@ -8,8 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
+class ViewController: UIViewController, UITableViewDataSource {
     
     let PostCellIdentifier = "PostCell"
     let ShowBrowserIdentifier = "ShowBrowser"
@@ -23,7 +22,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     let DefaultPostFilterType = PostFilterType.Top
     
     var postFilter: PostFilterType!
-    var posts: [HNPost]!
+    var techFeeds: [HNPost]!
     var nextPageId: String!
     var scrolledToBottom: Bool!
     var refreshControl: UIRefreshControl!
@@ -36,7 +35,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         postFilter = DefaultPostFilterType
-        posts = []
+        techFeeds = []
         nextPageId = ""
         scrolledToBottom = false
         refreshControl = UIRefreshControl()
@@ -71,7 +70,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if !scrolledToBottom {
             HNManager.sharedManager().loadPostsWithFilter(postFilter, completion: { posts, _ in
                 if posts != nil && posts.count > 0 {
-                    self.posts = posts as [HNPost]
+                    self.techFeeds = posts as [HNPost]
                     dispatch_async(dispatch_get_main_queue(), {
                         self.postsTableView.separatorStyle = .SingleLine
                         self.postsTableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
@@ -80,7 +79,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                     })
                 } else {
-                    self.posts = []
+                    self.techFeeds = []
                     self.postsTableView.reloadData()
                     if posts == nil {
                         self.showErrorMessage(self.FetchErrorMessage)
@@ -95,7 +94,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         } else if postUrlAddition != nil {
             HNManager.sharedManager().loadPostsWithUrlAddition(postUrlAddition, completion: { posts, _ in
                 if posts != nil && posts.count > 0 {
-                    self.posts.extend(posts as [HNPost])
+                    self.techFeeds.extend(posts as [HNPost])
                     dispatch_async(dispatch_get_main_queue(), {
                         self.postsTableView.separatorStyle = .SingleLine
                         self.postsTableView.reloadData()
@@ -105,7 +104,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                     })
                 } else {
-                    self.posts = []
+                    self.techFeeds = []
                     self.postsTableView.reloadData()
                     if posts == nil {
                         self.showErrorMessage(self.FetchErrorMessage)
@@ -132,24 +131,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     // MARK: UITableViewDataSource
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+         return techFeeds.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(PostCellIdentifier) as UITableViewCell
+       var cell = tableView.dequeueReusableCellWithIdentifier(PostCellIdentifier) as UITableViewCell
+        //let cell = tableView.dequeueReusableCellWithIdentifier("PostCell" , forIndexPath: indexPath) as UITableViewCell
+                let post = techFeeds[indexPath.row]
         
-        let post = posts[indexPath.row]
+                if HNManager.sharedManager().hasUserReadPost(post) {
+                    stylePostCellAsRead(cell)
+                }
         
-        if HNManager.sharedManager().hasUserReadPost(post) {
-            stylePostCellAsRead(cell)
-        }
-        
-        cell.textLabel.text = post.Title
-        cell.detailTextLabel?.text = "\(post.Points) points by \(post.Username)"
-        
-        return cell
+                cell.textLabel.text = post.Title
+                cell.detailTextLabel?.text = "\(post.Points) points by \(post.Username)"
+                
+                return cell
     }
     
     // MARK: UITableViewDelegate
@@ -170,7 +168,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let h = size.height
         
         let reloadDistance: CGFloat = 10
-        if y > h + reloadDistance && !scrolledToBottom && posts.count > 0 {
+        if y > h + reloadDistance && !scrolledToBottom && techFeeds.count > 0 {
             scrolledToBottom = true
             fetchPosts()
         }
@@ -181,14 +179,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
 //        if segue.identifier == ShowBrowserIdentifier {
 //            let webView = segue.destinationViewController.childViewControllers[0] as BrowserViewController
-//            let cell = sender as UITableViewCell
+           let cell = sender as UITableViewCell
 //            let post = posts[postsTableView.indexPathForSelectedRow()!.row]
 //            
 //            HNManager.sharedManager().setMarkAsReadForPost(post)
-//            stylePostCellAsRead(cell)
-//            
-//            webView.post = post
-//        }
+            stylePostCellAsRead(cell)
+            
+            //webView.post = post
     }
     
     // MARK: IBActions
