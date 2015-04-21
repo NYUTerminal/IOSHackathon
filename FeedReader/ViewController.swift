@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource , UITableViewDelegate  {
     
     let PostCellIdentifier = "PostCell"
     let ShowBrowserIdentifier = "ShowBrowser"
@@ -51,7 +51,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         configureUI()
         fetchPosts()
-        loadUrl()
+        //loadUrl()
     }
     
     // MARK: Functions
@@ -157,11 +157,21 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     // MARK: UITableViewDelegate
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func loadUrl(feed:HNPost) {
+        if techFeeds.count>0 {
+            let url = NSURL(string: feed.UrlString)
+            let request = NSURLRequest(URL: url!)
+            webView.loadRequest(request)
+        }
     }
     
-    // MARK: UIScrollViewDelegate
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let feed = techFeeds[indexPath.row]
+        HNManager.sharedManager().setMarkAsReadForPost(feed)
+        //webView.post = feed
+        loadUrl(feed)
+    }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let offset = scrollView.contentOffset
@@ -178,22 +188,6 @@ class ViewController: UIViewController, UITableViewDataSource {
             fetchPosts()
         }
     }
-    
-    // MARK: UIViewController
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-//        if segue.identifier == ShowBrowserIdentifier {
-//            let webView = segue.destinationViewController.childViewControllers[0] as BrowserViewController
-           let cell = sender as UITableViewCell
-//            let post = posts[postsTableView.indexPathForSelectedRow()!.row]
-//            
-//            HNManager.sharedManager().setMarkAsReadForPost(post)
-            stylePostCellAsRead(cell)
-            
-            //webView.post = post
-    }
-    
-    // MARK: IBActions
     
     @IBAction func changePostFilter(sender: UISegmentedControl) {
         HNManager.sharedManager().postUrlAddition = nil
@@ -212,15 +206,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
 
     
-    func loadUrl() {
-        var post:HNPost!
-        if techFeeds.count>0 {
-        post = techFeeds[0]
-        let url = NSURL(string: post.UrlString)
-        let request = NSURLRequest(URL: url!)
-        webView.loadRequest(request)
-        }
-    }
+
     
     
     // MARK: UIWebViewDelegate
@@ -236,4 +222,5 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
 }
+
 
