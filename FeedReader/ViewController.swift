@@ -210,19 +210,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         fetchPosts()
     }
-    
-//    override func viewDidDisappear(animated: Bool) {
-//        if isMovingFromParentViewController() {
-//            webView.stopLoading()
-//            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-//        }
-//    }
-    
-    // MARK: Functions
-    
-//    func configureUI() {
-//        title = post.Title
-//    }
+
     
     func loadUrl() {
         var post:HNPost!
@@ -246,7 +234,6 @@ class ViewController: UIViewController, UITableViewDataSource {
         toolbarBarButtonItems?[0].enabled = webView.canGoBack
         toolbarBarButtonItems?[2].enabled = webView.canGoForward
     }
-    
     
 }
 
