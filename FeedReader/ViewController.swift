@@ -27,6 +27,9 @@ class ViewController: UIViewController, UITableViewDataSource {
     var scrolledToBottom: Bool!
     var refreshControl: UIRefreshControl!
     var errorMessageLabel: UILabel!
+    var toolbarBarButtonItems: [UIBarButtonItem]?
+    
+    @IBOutlet weak var webView: UIWebView!
 
     
     @IBOutlet weak var postsTableView: UITableView!
@@ -39,6 +42,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         nextPageId = ""
         scrolledToBottom = false
         refreshControl = UIRefreshControl()
+        toolbarBarButtonItems = toolbarItems as? [UIBarButtonItem]
     }
     
     // MARK: UIViewController
@@ -47,6 +51,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         configureUI()
         fetchPosts()
+        loadUrl()
     }
     
     // MARK: Functions
@@ -205,6 +210,43 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         fetchPosts()
     }
+    
+//    override func viewDidDisappear(animated: Bool) {
+//        if isMovingFromParentViewController() {
+//            webView.stopLoading()
+//            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+//        }
+//    }
+    
+    // MARK: Functions
+    
+//    func configureUI() {
+//        title = post.Title
+//    }
+    
+    func loadUrl() {
+        var post:HNPost!
+        if techFeeds.count>0 {
+        post = techFeeds[0]
+        let url = NSURL(string: post.UrlString)
+        let request = NSURLRequest(URL: url!)
+        webView.loadRequest(request)
+        }
+    }
+    
+    
+    // MARK: UIWebViewDelegate
+    
+    func webViewDidStartLoad(webView: UIWebView) {
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+    }
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        toolbarBarButtonItems?[0].enabled = webView.canGoBack
+        toolbarBarButtonItems?[2].enabled = webView.canGoForward
+    }
+    
     
 }
 
