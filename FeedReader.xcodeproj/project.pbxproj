@@ -14,6 +14,7 @@
 		CB2DC8411ADCA765004166E2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB2DC83F1ADCA765004166E2 /* LaunchScreen.xib */; };
 		CB2DC84D1ADCA765004166E2 /* FeedReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2DC84C1ADCA765004166E2 /* FeedReaderTests.swift */; };
 		CB60D5091AE5A8C90026CD01 /* 128167.png in Resources */ = {isa = PBXBuildFile; fileRef = CB60D5081AE5A8C90026CD01 /* 128167.png */; };
+		CB67176A1AE6E36F0005D2F5 /* iOS-7-Wallpaper-Parallax-16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CB6717691AE6E36F0005D2F5 /* iOS-7-Wallpaper-Parallax-16.jpg */; };
 		CB80B0D81ADD9C97006E3E81 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CB80B0D71ADD9C97006E3E81 /* Podfile */; };
 		CB82A0D51ADDC9D7003B1C2A /* ReadMe in Resources */ = {isa = PBXBuildFile; fileRef = CB82A0D41ADDC9D7003B1C2A /* ReadMe */; };
 		E7D91E863F978708FD7CF5FF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59DCB751C36E329BDF01E0B9 /* libPods.a */; };
@@ -43,7 +44,8 @@
 		CB2DC84B1ADCA765004166E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB2DC84C1ADCA765004166E2 /* FeedReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedReaderTests.swift; sourceTree = "<group>"; };
 		CB60D5081AE5A8C90026CD01 /* 128167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 128167.png; sourceTree = "<group>"; };
-		CB80B0D71ADD9C97006E3E81 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		CB6717691AE6E36F0005D2F5 /* iOS-7-Wallpaper-Parallax-16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "iOS-7-Wallpaper-Parallax-16.jpg"; sourceTree = "<group>"; };
+		CB80B0D71ADD9C97006E3E81 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		CB82A0D11ADD9FB2003B1C2A /* FeedReader-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FeedReader-Bridging-Header.h"; sourceTree = "<group>"; };
 		CB82A0D41ADDC9D7003B1C2A /* ReadMe */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
 		F771ACE62BD4D334832AA759 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				CB2DC8361ADCA765004166E2 /* AppDelegate.swift */,
 				CB2DC8381ADCA765004166E2 /* ViewController.swift */,
 				CB2DC83A1ADCA765004166E2 /* Main.storyboard */,
+				CB6717691AE6E36F0005D2F5 /* iOS-7-Wallpaper-Parallax-16.jpg */,
 				CB2DC83D1ADCA765004166E2 /* Images.xcassets */,
 				CB60D5081AE5A8C90026CD01 /* 128167.png */,
 				CB2DC83F1ADCA765004166E2 /* LaunchScreen.xib */,
@@ -234,6 +237,7 @@
 				CB2DC8411ADCA765004166E2 /* LaunchScreen.xib in Resources */,
 				CB80B0D81ADD9C97006E3E81 /* Podfile in Resources */,
 				CB60D5091AE5A8C90026CD01 /* 128167.png in Resources */,
+				CB67176A1AE6E36F0005D2F5 /* iOS-7-Wallpaper-Parallax-16.jpg in Resources */,
 				CB2DC83E1ADCA765004166E2 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -51,7 +51,7 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
         super.viewDidLoad()
         configureUI()
         fetchPosts()
-        //loadUrl()
+        loadUrl()
     }
     
     // MARK: Functions
@@ -165,6 +165,14 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
         }
     }
     
+    func loadUrl() {
+        //if techFeeds.count>0 {
+            let url = NSURL(string: "www.google.com")
+            let request = NSURLRequest(URL: url!)
+            webView.loadRequest(request)
+        //}
+    }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let feed = techFeeds[indexPath.row]
@@ -197,19 +205,13 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
         } else if sender.selectedSegmentIndex == 1 {
             postFilter = .New
         } else if sender.selectedSegmentIndex == 2 {
-            postFilter = .Ask
+            postFilter = .Jobs
         } else {
             println("Bad segment index!")
         }
         
         fetchPosts()
     }
-
-    
-
-    
-    
-    // MARK: UIWebViewDelegate
     
     func webViewDidStartLoad(webView: UIWebView) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
@@ -219,6 +221,22 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         toolbarBarButtonItems?[0].enabled = webView.canGoBack
         toolbarBarButtonItems?[2].enabled = webView.canGoForward
+    }
+    
+    @IBAction func doRefresh(AnyObject) {
+        webView.reload()
+    }
+    
+    @IBAction func goBack(AnyObject) {
+        webView.goBack()
+    }
+    
+    @IBAction func goForward(AnyObject) {
+        webView.goForward()
+    }
+    
+    @IBAction func stop(AnyObject) {
+        webView.stopLoading()
     }
     
 }
