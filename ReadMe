@@ -1,7 +1,21 @@
+We have built a simple and beautiful Tech News Feed reader.It provides multiple options like top news , recent news along with JOB 
+openings.This project uses "libHN" to acomplist the task . Feeds are retrieved from HackerNews website.
+
+How to run : 
+-Clone the project .
+-Navigate to project in Terminal and do 'pod install'.
+-Open the .xcworkspace file to run the project.
+
 Team Members :
 
-
-Era Chaudhary - N18442291 - ec2693@nyu.edu
 Praveen Mareedu - N16407897 - pm2374@nyu.edu
+Era Chaudhary - N18442291 - ec2693@nyu.edu
 Alex Mathew, - N16051880 - am6285@nyu.edu
 Kushal Jogi. - N15668778 - kaj359@nyu.edu
+
+
+Sample ScreenShots : 
+
+![Alt text](https://github.com/NYUTerminal/IOSHackathon/blob/master/Iphone6.png "Iphone6Screenshot")
+
+![Alt text](https://github.com/NYUTerminal/IOSHackathon/blob/master/Ipad.png "Iphone6Screenshot")
