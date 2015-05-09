@@ -1,6 +1,6 @@
 #IOS Hackathon
-<h1>We have built a simple and beautiful Tech News Feed reader.<br>It provides multiple options like top news , recent news along with JOB 
-openings.<br>This project uses "libHN" to acomplist the task . Feeds are retrieved from HackerNews website.</h1>
+<h2>We have built a simple and beautiful Tech News Feed reader.<br>It provides multiple options like top news , recent news along with JOB 
+openings.<br>This project uses "libHN" to acomplist the task . Feeds are retrieved from HackerNews website.</h2>
 
 <h3>
 It gives a Preview of the news topics and we can pick any topic to read full information about that topic.Scroll bottom of the postings to load more posts automatically.<br> It also includes Job Postings in
