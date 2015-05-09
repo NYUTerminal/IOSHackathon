@@ -1,3 +1,4 @@
+#IOS Hackathon
 <h3>We have built a simple and beautiful Tech News Feed reader.It provides multiple options like top news , recent news along with JOB 
 openings.This project uses "libHN" to acomplist the task . Feeds are retrieved from HackerNews website.</h3>
 
@@ -12,7 +13,6 @@ How to run :
 -Open the .xcworkspace file to run the project.
 
 Team Members :
-
 Praveen Mareedu - N16407897 - pm2374@nyu.edu
 Era Chaudhary - N18442291 - ec2693@nyu.edu
 Alex Mathew, - N16051880 - am6285@nyu.edu
